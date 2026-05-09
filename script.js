@@ -1,3 +1,12 @@
+// PRELOADER
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => { preloader.classList.add('hidden'); }, 1500);
+    setTimeout(() => { preloader.remove(); }, 2200);
+  }
+});
+
 // HAMBURGER
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
