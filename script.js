@@ -1,0 +1,82 @@
+// HAMBURGER
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+    const s = hamburger.querySelectorAll('span');
+    if (navMenu.classList.contains('open')) {
+      s[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      s[1].style.opacity = '0';
+      s[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      s[0].style.transform = ''; s[1].style.opacity = '1'; s[2].style.transform = '';
+    }
+  });
+  document.querySelectorAll('.nav-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = '1'; });
+    });
+  });
+}
+
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(5,5,5,.97)';
+    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,.5)';
+  } else {
+    nav.style.background = 'rgba(5,5,5,.9)';
+    nav.style.boxShadow = 'none';
+  }
+});
+
+// REVEAL
+const revealEls = document.querySelectorAll('.reveal');
+const doReveal = () => {
+  const wh = window.innerHeight;
+  revealEls.forEach(el => {
+    if (el.getBoundingClientRect().top < wh - 60) el.classList.add('active');
+  });
+};
+window.addEventListener('scroll', doReveal);
+window.addEventListener('load', doReveal);
+
+// BOOKING -> WHATSAPP
+function handleBooking(e) {
+  e.preventDefault();
+  const f = id => document.getElementById(id).value;
+  const msg = `🚗 *NEW BOOKING — CAR GROOM*\n━━━━━━━━━━━━━━\n👤 *Name:* ${f('fname')}\n📞 *Phone:* ${f('fphone')}\n🚘 *Vehicle:* ${f('fcar')}\n🔧 *Service:* ${f('fservice')}\n📅 *Date:* ${f('fdate')}\n🕐 *Time:* ${f('ftime')}\n📝 *Notes:* ${f('fnotes') || 'None'}\n━━━━━━━━━━━━━━`;
+  window.open('https://wa.me/918885674191?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// MIN DATE
+const dateIn = document.getElementById('fdate');
+if (dateIn) dateIn.setAttribute('min', new Date().toISOString().split('T')[0]);
+
+// COUNTER ANIMATION
+function animateCounters() {
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.textContent.replace(/\d+/, '');
+    let cur = 0;
+    const step = Math.ceil(target / 50);
+    const timer = setInterval(() => {
+      cur += step;
+      if (cur >= target) { cur = target; clearInterval(timer); }
+      el.textContent = cur + '+';
+    }, 30);
+  });
+}
+const statsEl = document.querySelector('.stats');
+let countersDone = false;
+if (statsEl) {
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !countersDone) { countersDone = true; animateCounters(); }
+    });
+  }, { threshold: 0.3 }).observe(statsEl);
+}
