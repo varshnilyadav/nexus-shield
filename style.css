@@ -178,11 +178,11 @@ a{text-decoration:none;color:inherit}
 .service-link:hover{gap:12px}
 
 /* DETAILING MENU */
-.detail-menu{padding:80px 8%}
-.detail-menu h2{text-align:center;font-size:clamp(1.2rem,2.5vw,1.8rem);margin-bottom:3rem}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1000px;margin:0 auto;border-left:2px solid var(--accent);border-radius:var(--radius);overflow:hidden;background:var(--glass);border:1px solid var(--border)}
-.menu-item{display:flex;align-items:center;gap:12px;padding:20px 30px;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text2);transition:.3s}
-.menu-item:hover{background:rgba(197,150,58,.05);color:var(--text)}
+.detail-menu{position:relative}
+.detail-menu h2{font-size:clamp(1.2rem,2.5vw,1.8rem);margin-bottom:3rem}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1000px;margin:0 auto;border-radius:var(--radius);overflow:hidden;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+.menu-item{display:flex;align-items:center;gap:12px;padding:20px 30px;border-bottom:1px solid rgba(255,255,255,.08);font-size:.9rem;color:rgba(255,255,255,.7);transition:.3s}
+.menu-item:hover{background:rgba(197,150,58,.1);color:#fff}
 .menu-item .check{color:var(--accent);font-size:.9rem}
 
 /* TRUST / ABOUT */
@@ -248,13 +248,20 @@ a{text-decoration:none;color:inherit}
 .testimonial-text{font-size:.85rem;line-height:1.7;font-style:italic;color:#aaa}
 
 /* BOOKING */
-.booking{padding:100px 8%;text-align:center}
-.booking h2{font-size:clamp(1.3rem,2.5vw,2rem);margin-bottom:.8rem}
-.booking .sub{color:var(--text2);max-width:600px;margin:0 auto 1.5rem;font-size:.9rem}
+.booking{position:relative}
+.booking h2{font-size:clamp(1.3rem,2.5vw,2rem);margin-bottom:.8rem;text-align:center}
+.booking .sub{color:rgba(255,255,255,.55);max-width:600px;margin:0 auto 1.5rem;font-size:.9rem;text-align:center}
 .booking-features{display:flex;justify-content:center;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
-.booking-features .feat{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--text2)}
+.booking-features .feat{display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.6)}
 .booking-features .feat .ico{color:var(--accent)}
-.booking-form{max-width:700px;margin:0 auto;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem}
+.booking-form{max-width:700px;margin:0 auto;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:2.5rem}
+
+/* SHARED PARALLAX SECTION PATTERN */
+.parallax-section{position:relative;overflow:hidden}
+.section-parallax-wrap{position:absolute;inset:0;clip-path:inset(0 0 0 0);-webkit-clip-path:inset(0 0 0 0);z-index:0}
+.section-parallax-bg{position:fixed;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;will-change:transform;z-index:0}
+.section-parallax-overlay{position:fixed;inset:0;z-index:1}
+.section-parallax-content{position:relative;z-index:2;padding:100px 8%;text-align:center}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
 .form-group{margin-bottom:.5rem;text-align:left}
 .form-group label{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:.4rem}
