@@ -188,6 +188,18 @@ a{text-decoration:none;color:inherit}
 .book-float a{background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 0 20px var(--accent-glow);transition:.3s}
 .book-float a:hover{box-shadow:0 0 35px var(--accent-glow)}
 
+/* GALLERY */
+.gallery{padding:80px 8%}
+.gallery .tag{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1rem}
+.gallery .tag .line{width:20px;height:2px;background:var(--accent)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1200px;margin:0 auto}
+.gallery-item{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3;cursor:pointer;position:relative}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .5s ease;filter:brightness(.85)}
+.gallery-item:hover img{transform:scale(1.08);filter:brightness(1)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.3),transparent);opacity:1;transition:opacity .3s}
+.gallery-item:hover::after{opacity:0}
+.premium-brands{border-top:1px solid var(--border)}
+
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(30px);transition:.8s ease}
 .reveal.active{opacity:1;transform:translateY(0)}
@@ -231,6 +243,7 @@ a{text-decoration:none;color:inherit}
   .hero-btns{flex-direction:column;align-items:flex-start}
   .menu-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;text-align:center}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .book-float{left:15px;bottom:15px}
   .floating{bottom:15px;right:15px}
 }
