@@ -54,6 +54,18 @@ const doReveal = () => {
 window.addEventListener('scroll', doReveal);
 window.addEventListener('load', doReveal);
 
+// DATA-ANIMATE OBSERVER
+const animateObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const delay = entry.target.getAttribute('data-delay') || 0;
+      setTimeout(() => entry.target.classList.add('is-visible'), Number(delay));
+      animateObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('[data-animate]').forEach(el => animateObserver.observe(el));
+
 // BOOKING -> WHATSAPP
 function handleBooking(e) {
   e.preventDefault();
