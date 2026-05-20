@@ -58,8 +58,8 @@ window.addEventListener('load', doReveal);
 function handleBooking(e) {
   e.preventDefault();
   const f = id => document.getElementById(id).value;
-  const msg = `🚗 *NEW BOOKING — CAR GROOM*\n━━━━━━━━━━━━━━\n👤 *Name:* ${f('fname')}\n📞 *Phone:* ${f('fphone')}\n🚘 *Vehicle:* ${f('fcar')}\n🔧 *Service:* ${f('fservice')}\n📅 *Date:* ${f('fdate')}\n🕐 *Time:* ${f('ftime')}\n📝 *Notes:* ${f('fnotes') || 'None'}\n━━━━━━━━━━━━━━`;
-  window.open('https://wa.me/918885674191?text=' + encodeURIComponent(msg), '_blank');
+  const msg = `🚗 *NEW BOOKING — NEXUS AUTO SHIELD*\n━━━━━━━━━━━━━━\n👤 *Name:* ${f('fname')}\n📞 *Phone:* ${f('fphone')}\n🚘 *Vehicle:* ${f('fcar')}\n🔧 *Service:* ${f('fservice')}\n📅 *Date:* ${f('fdate')}\n🕐 *Time:* ${f('ftime')}\n📝 *Notes:* ${f('fnotes') || 'None'}\n━━━━━━━━━━━━━━`;
+  window.open('https://wa.me/919114919919?text=' + encodeURIComponent(msg), '_blank');
 }
 
 // MIN DATE
