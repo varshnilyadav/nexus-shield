@@ -30,7 +30,7 @@ if (hamburger) {
   });
 }
 
-// NAV SCROLL & HERO PARALLAX
+// NAV SCROLL
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
   if (nav) {
@@ -40,17 +40,6 @@ window.addEventListener('scroll', () => {
     } else {
       nav.style.background = 'rgba(5,5,5,.9)';
       nav.style.boxShadow = 'none';
-    }
-  }
-
-  const heroBg = document.querySelector('.hero-bg');
-  const heroContent = document.querySelector('.hero-content');
-  if (heroBg && window.scrollY < window.innerHeight) {
-    const scrollY = window.scrollY;
-    heroBg.style.transform = `scale(1.1) translateY(${scrollY * 0.35}px)`;
-    if (heroContent) {
-      heroContent.style.transform = `translateY(${scrollY * 0.12}px)`;
-      heroContent.style.opacity = 1 - (scrollY / window.innerHeight) * 1.3;
     }
   }
 });
